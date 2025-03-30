@@ -1,0 +1,125 @@
+.hz-button {
+  --hz-button-font-weight: var(--hz-font-weight-primary);
+  --hz-button-border-color: var(--hz-border-color);
+  --hz-button-bg-color: var(--hz-fill-color-blank);
+  --hz-button-text-color: var(--hz-text-color-regular);
+  --hz-button-disabled-text-color: var(--hz-disabled-text-color);
+  --hz-button-disabled-bg-color: var(--hz-fill-color-blank);
+  --hz-button-disabled-border-color: var(--hz-border-color-light);
+  --hz-button-hover-text-color: var(--hz-color-primary);
+  --hz-button-hover-bg-color: var(--hz-color-primary-light-9);
+  --hz-button-hover-border-color: var(--hz-color-primary-light-7);
+  --hz-button-active-text-color: var(--hz-button-hover-text-color);
+  --hz-button-active-border-color: var(--hz-color-primary);
+  --hz-button-active-bg-color: var(--hz-button-hover-bg-color);
+  --hz-button-outline-color: var(--hz-color-primary-light-5);
+  --hz-button-active-color: var(--hz-text-color-primary);
+}
+.hz-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  height: 32px;
+  white-space: nowrap;
+  cursor: pointer;
+  color: var(--hz-button-text-color);
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: 0.1s;
+  font-weight: var(--hz-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  background-color: var(--hz-button-bg-color);
+  border: var(--hz-border);
+  border-color: var(--hz-button-border-color);
+  padding: 8px 15px;
+  font-size: var(--hz-font-size-base);
+  border-radius: var(--hz-border-radius-base);
+  & + & {
+    margin-left: 12px;
+  }
+  &:hover,
+  &:focus {
+    color: var(--hz-button-hover-text-color);
+    border-color: var(--hz-button-hover-border-color);
+    background-color: var(--hz-button-hover-bg-color);
+    outline: none;
+  }
+  &:active {
+    color: var(--hz-button-active-text-color);
+    border-color: var(--hz-button-active-border-color);
+    background-color: var(--hz-button-active-bg-color);
+    outline: none;
+  }
+  /* plain */
+  &.is-plain {
+    --hz-button-hover-text-color: var(--hz-color-primary);
+    --hz-button-hover-bg-color: var(--hz-fill-color-blank);
+    --hz-button-hover-border-color: var(--hz-color-primary);
+  }
+  /* round */
+  &.is-round {
+    border-radius: var(--hz-border-radius-round);
+  }
+  /*circle*/
+  &.is-circle {
+    border-radius: 50%;
+    padding: 8px;
+  }
+  /*disabled*/
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    color: var(--hz-button-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+    background-color: var(--hz-button-disabled-bg-color);
+    border-color: var(--hz-button-disabled-border-color);
+  }
+}
+@each $val in primary, success, info, warning, danger {
+  .hz-button--$(val) {
+    --hz-button-text-color: var(--hz-color-white);
+    --hz-button-bg-color: var(--hz-color-$(val));
+    --hz-button-border-color: var(--hz-color-$(val));
+    --hz-button-outline-color: var(--hz-color-$(val)-light-5);
+    --hz-button-active-color: var(--hz-color-$(val)-dark-2);
+    --hz-button-hover-text-color: var(--hz-color-white);
+    --hz-button-hover-bg-color: var(--hz-color-$(val)-light-3);
+    --hz-button-hover-border-color: var(--hz-color-$(val)-light-3);
+    --hz-button-active-bg-color: var(--hz-color-$(val)-dark-2);
+    --hz-button-active-border-color: var(--hz-color-$(val)-dark-2);
+    --hz-button-disabled-text-color: var(--hz-color-white);
+    --hz-button-disabled-bg-color: var(--hz-color-$(val)-light-5);
+    --hz-button-disabled-border-color: var(--hz-color-$(val)-light-5);
+  }
+  .hz-button--$(val).is-plain {
+    --hz-button-text-color: var(--hz-color-$(val));
+    --hz-button-bg-color: var(--hz-color-$(val)-light-9);
+    --hz-button-border-color: var(--hz-color-$(val)-light-5);
+    --hz-button-hover-text-color: var(--hz-color-white);
+    --hz-button-hover-bg-color: var(--hz-color-$(val));
+    --hz-button-hover-border-color: var(--hz-color-$(val));
+    --hz-button-active-text-color: var(--hz-color-white);
+  }
+}
+.hz-button--large {
+  --hz-button-size: 40px;
+  height: var(--hz-button-size);
+  padding: 12px 19px;
+  font-size: var(--hz-font-size-base);
+  border-radius: var(--hz-border-radius-base);
+}
+.hz-button--small {
+  --hz-button-size: 24px;
+  height: var(--hz-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--hz-border-radius-base) - 1px);
+}
