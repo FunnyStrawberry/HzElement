@@ -1,16 +1,26 @@
 <script setup lang="ts">
 import HzButton from '@/components/button/button.vue'
+import type { IButtonInstance } from './components/button/types'
+
+const hzButtonEl = useTemplateRef<IButtonInstance>('hzButtonRef')
+
 import Collapse from './components/collapse/collapse.vue'
 import CollapseItem from './components/collapse/collapseItem.vue'
 
 const openedValue = ref(['a'])
+
+onMounted(() => {
+  if (hzButtonEl.value) {
+    console.log('hzButtonEl', hzButtonEl.value.ref)
+  }
+})
 </script>
 
 <template>
   <div class="example">
     <div class="example-showcase">
       <div class="mb-4">
-        <hz-button>Default</hz-button>
+        <hz-button ref="hzButtonRef">Default</hz-button>
         <hz-button type="primary">Primary</hz-button>
         <hz-button type="success">Success</hz-button>
         <hz-button type="info">Info</hz-button>

@@ -6,16 +6,16 @@ defineOptions({
 })
 const { nativeType = 'button' } = defineProps<IButtonProps>()
 
-const _ref = ref<HTMLButtonElement>()
+const buttonEl = useTemplateRef<HTMLButtonElement>('buttonRef')
 
 defineExpose({
-  ref: _ref,
+  ref: buttonEl,
 })
 </script>
 
 <template>
   <button
-    ref="_ref"
+    ref="buttonRef"
     class="hz-button"
     :class="{
       [`hz-button--${type}`]: type,
