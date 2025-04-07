@@ -1,3 +1,4 @@
 @import './vars.css';
 @import './base.css';
 @import '../components/button/style.css';
+@import '../components/collapse/style.css';

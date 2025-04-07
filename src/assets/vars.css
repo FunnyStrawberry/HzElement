@@ -2,13 +2,7 @@
   /* colors */
   --hz-color-white: #ffffff;
   --hz-color-black: #000000;
-  --colors: (
-    primary: #409eff,
-    success: #67c23a,
-    warning: #e6a23c,
-    danger: #f56c6c,
-    info: #909399,
-  );
+  --colors: (primary: #409eff, success: #67c23a, warning: #e6a23c, danger: #f56c6c, info: #909399);
 
   @each $val, $color in var(--colors) {
     --hz-color-$(val): $(color);
@@ -66,4 +60,8 @@
   --hz-disabled-bg-color: var(--hz-fill-color-light);
   --hz-disabled-text-color: var(--hz-text-color-placeholder);
   --hz-disabled-border-color: var(--hz-border-color-light);
+
+  /*animation*/
+  --hz-transition-duration: 0.3s;
+  --hz-transition-duration-fast: 0.2s;
 }
