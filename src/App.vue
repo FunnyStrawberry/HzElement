@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import HzButton from '@/components/button/button.vue'
 import type { IButtonInstance } from './components/button/types'
+import HzCollapse from './components/collapse/collapse.vue'
+import HzCollapseItem from './components/collapse/collapseItem.vue'
+import HzIcon from './components/icon/icon.vue'
+import HzAlert from './components/alert/alert.vue'
 
 const hzButtonEl = useTemplateRef<IButtonInstance>('hzButtonRef')
-
-import Collapse from './components/collapse/collapse.vue'
-import CollapseItem from './components/collapse/collapseItem.vue'
-
 const openedValue = ref(['a'])
+const handleWarningAlert = () => {
+  alert('warning')
+}
 
 onMounted(() => {
   if (hzButtonEl.value) {
@@ -48,25 +51,53 @@ onMounted(() => {
         <hz-button size="large">Large</hz-button>
         <hz-button size="small">Small</hz-button>
         <hz-button disabled>Disabled Button</hz-button>
+        <hz-button size="large" loading>Loading</hz-button>
+        <hz-button size="large" icon="arrow-up">Icon</hz-button>
       </div>
     </div>
   </div>
   <div class="example">
     <div class="example-showcase">
-      <collapse v-model="openedValue" accordion>
-        <collapse-item name="a">
+      <hz-collapse v-model="openedValue" accordion>
+        <hz-collapse-item name="a">
           <template #title>
             <h1>nice title</h1>
           </template>
           <div>this is aaaaa test</div>
-        </collapse-item>
-        <collapse-item name="b" title="Title B">
+        </hz-collapse-item>
+        <hz-collapse-item name="b" title="Title B">
           <div>this is bbbbb test</div>
-        </collapse-item>
-        <collapse-item name="c" title="Disabled Title" disabled>
+        </hz-collapse-item>
+        <hz-collapse-item name="c" title="Disabled Title" disabled>
           <div>this is cccc test</div>
-        </collapse-item>
-      </collapse>
+        </hz-collapse-item>
+      </hz-collapse>
+    </div>
+  </div>
+  <div class="example">
+    <div class="example-showcase">
+      <hz-icon icon="arrow-left" size="2xl" />
+      <hz-icon icon="arrow-up" size="2xl" type="primary" />
+      <hz-icon icon="arrow-right" size="2xl" type="primary" color="#f00" />
+      <hz-icon icon="arrow-down" size="2xl" type="primary" color="#0f0" />
+    </div>
+  </div>
+  <div class="example">
+    <div class="example-showcase">
+      <hz-alert type="primary">
+        <template #title>
+          <h1>Primary alert</h1>
+        </template>
+      </hz-alert>
+      <hz-alert title="Success alert" type="success" />
+      <hz-alert title="Info alert" type="info" />
+      <hz-alert title="Warning alert" type="warning" @close="handleWarningAlert" />
+      <hz-alert title="Error alert" type="danger" closable />
+      <hz-alert title="Primary alert" type="primary" effect="dark" />
+      <hz-alert title="Success alert" type="success" effect="dark" />
+      <hz-alert title="Info alert" type="info" effect="dark" />
+      <hz-alert title="Warning alert" type="warning" effect="dark" />
+      <hz-alert title="Error alert" type="danger" effect="dark" closable />
     </div>
   </div>
 </template>
@@ -83,6 +114,12 @@ onMounted(() => {
     .mb-4 {
       margin-bottom: 1rem;
     }
+  }
+  .hz-alert {
+    margin: 20px 0 0;
+  }
+  .hz-alert:first-child {
+    margin: 0;
   }
 }
 </style>
