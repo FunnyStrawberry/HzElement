@@ -33,6 +33,12 @@
   }
   &.is-active {
     border-bottom-color: transparent;
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+  .header-angle {
+    transition: transform var(--hz-transition-duration);
   }
 }
 .hz-collapse-item__content {

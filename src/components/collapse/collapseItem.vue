@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { ICollapseItemProps } from './types'
 import { collapseContextKey } from './types'
+import Icon from '../icon/icon.vue'
 
 defineOptions({
   name: 'HzCollapseItem',
@@ -56,6 +57,7 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
       @click="handleClick"
     >
       <slot name="title">{{ title }}</slot>
+      <icon icon="angle-right" class="header-angle" />
     </div>
     <Transition name="slide" v-on="transitionEvents">
       <div class="hz-collapse-item__wrapper" v-show="isActive">
