@@ -13,7 +13,7 @@ const customStyles = computed(() => {
 </script>
 
 <template>
-  <i class="hz-icon" :class="{ [`hz-icon--${type}`]: type }" :style="customStyles">
+  <i class="hz-icon" :class="{ [`hz-icon--${type}`]: type }" :style="customStyles" v-bind="$attrs">
     <font-awesome-icon v-bind="fontAwesomeIconProps" />
   </i>
 </template>
