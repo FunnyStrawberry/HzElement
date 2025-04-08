@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { IButtonProps } from './types'
+import Icon from '../icon/icon.vue'
 
 defineOptions({
   name: 'HzButton',
@@ -24,11 +25,14 @@ defineExpose({
       'is-round': round,
       'is-circle': circle,
       'is-disabled': disabled,
+      'is-loading': loading,
     }"
-    :disabled="disabled"
+    :disabled="disabled || loading"
     :autofocus="autofocus"
     :type="nativeType"
   >
+    <icon icon="spinner" spin v-if="loading" />
+    <icon :icon="icon" v-if="icon" />
     <span>
       <slot />
     </span>

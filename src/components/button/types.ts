@@ -12,6 +12,9 @@ export interface IButtonProps {
   // button 的原生属性
   nativeType?: NativeType
   autofocus?: boolean
+  // icon 的相关属性
+  icon?: string
+  loading?: boolean
 }
 export interface IButtonInstance {
   ref: HTMLButtonElement

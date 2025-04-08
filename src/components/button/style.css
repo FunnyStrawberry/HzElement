@@ -82,6 +82,10 @@
     background-color: var(--hz-button-disabled-bg-color);
     border-color: var(--hz-button-disabled-border-color);
   }
+  /* icon + span 的间距 */
+  [class*='hz-icon'] + span {
+    margin-left: 6px;
+  }
 }
 @each $val in primary, success, info, warning, danger {
   .hz-button--$(val) {
