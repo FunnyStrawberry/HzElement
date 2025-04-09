@@ -10,7 +10,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "test": "vitest"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -25,10 +26,12 @@
     "@vitejs/plugin-vue-jsx": "^4.1.1",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.5.0",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
     "eslint": "^9.21.0",
     "eslint-plugin-vue": "~10.0.0",
     "jiti": "^2.4.2",
+    "jsdom": "^26.0.0",
     "npm-run-all2": "^7.0.2",
     "postcss-color-mix": "^1.1.0",
     "postcss-each": "^1.1.0",
@@ -39,6 +42,7 @@
     "unplugin-auto-import": "^19.1.2",
     "vite": "^6.2.1",
     "vite-plugin-vue-devtools": "^7.7.2",
+    "vitest": "^3.1.1",
     "vue-tsc": "^2.2.8"
   }
 }
