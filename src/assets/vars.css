@@ -9,8 +9,8 @@
     @for $i from 3 to 9 by 2 {
       --hz-color-$(val)-light-$(i): mix(#fff, $(color), .$(i));
     }
-    --hz-color-primary-light-8: mix(#fff, $(color), 0.8);
-    --hz-color-primary-dark-2: mix(#000, $(color), 0.2);
+    --hz-color-$(val)-light-8: mix(#fff, $(color), 0.8);
+    --hz-color-$(val)-dark-2: mix(#000, $(color), 0.2);
   }
   --hz-bg-color: #ffffff;
   --hz-bg-color-page: #f2f3f5;
