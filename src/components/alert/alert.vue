@@ -5,7 +5,7 @@ import Icon from '../icon/icon.vue'
 defineOptions({
   name: 'HzAlert',
 })
-const { effect = 'light' } = defineProps<IAlertProps>()
+const { closable = true, effect = 'light' } = defineProps<IAlertProps>()
 const emits = defineEmits<IAlertEmits>()
 
 const isShow = ref(true)
@@ -40,7 +40,7 @@ const transitionEvents: Record<string, (el: HTMLElement) => void> = {
         <slot name="title">
           <span class="hz-alert__title">{{ title }}</span>
         </slot>
-        <icon icon="xmark" class="hz-alert__close-btn" v-if="!closable" @click="handleCloseClick" />
+        <icon icon="xmark" class="hz-alert__close-btn" v-if="closable" @click="handleCloseClick" />
       </div>
     </div>
   </Transition>

@@ -92,12 +92,12 @@ onMounted(() => {
       <hz-alert title="Success alert" type="success" />
       <hz-alert title="Info alert" type="info" />
       <hz-alert title="Warning alert" type="warning" @close="handleWarningAlert" />
-      <hz-alert title="Error alert" type="danger" closable />
+      <hz-alert title="Error alert" type="danger" :closable="false" />
       <hz-alert title="Primary alert" type="primary" effect="dark" />
       <hz-alert title="Success alert" type="success" effect="dark" />
       <hz-alert title="Info alert" type="info" effect="dark" />
       <hz-alert title="Warning alert" type="warning" effect="dark" />
-      <hz-alert title="Error alert" type="danger" effect="dark" closable />
+      <hz-alert title="Error alert" type="danger" effect="dark" :closable="false" />
     </div>
   </div>
 </template>
