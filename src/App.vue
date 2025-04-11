@@ -5,17 +5,32 @@ import HzCollapse from './components/collapse/collapse.vue'
 import HzCollapseItem from './components/collapse/collapseItem.vue'
 import HzIcon from './components/icon/icon.vue'
 import HzAlert from './components/alert/alert.vue'
+import HzTooltip from './components/tooltip/tooltip.vue'
+import type { ITooltipInstance } from './components/tooltip/types'
 
 const hzButtonEl = useTemplateRef<IButtonInstance>('hzButtonRef')
 const openedValue = ref(['a'])
 const handleWarningAlert = () => {
   alert('warning')
 }
+const hzTooltipEl = useTemplateRef<ITooltipInstance>('hzTooltipRef')
+const trigger = ref<'hover' | 'click'>('click')
+
+const open = () => {
+  hzTooltipEl.value?.add()
+}
+const close = () => {
+  hzTooltipEl.value?.remove()
+}
 
 onMounted(() => {
   if (hzButtonEl.value) {
     console.log('hzButtonEl', hzButtonEl.value.ref)
   }
+
+  // setTimeout(() => {
+  //   trigger.value = 'hover'
+  // }, 2000)
 })
 </script>
 
@@ -98,6 +113,26 @@ onMounted(() => {
       <hz-alert title="Info alert" type="info" effect="dark" />
       <hz-alert title="Warning alert" type="warning" effect="dark" />
       <hz-alert title="Error alert" type="danger" effect="dark" :closable="false" />
+    </div>
+  </div>
+  <div class="example">
+    <div class="example-showcase">
+      <div class="mb-4">
+        <hz-button type="primary" @click="open">open button</hz-button>
+        <hz-button type="primary" @click="close">close button</hz-button>
+      </div>
+      <hz-tooltip
+        ref="hzTooltipRef"
+        :trigger="trigger"
+        placement="bottom"
+        :add-delay="100"
+        :remove-delay="100"
+      >
+        <span>tooltip button</span>
+        <template #content>
+          <span>Hello tooltip</span>
+        </template>
+      </hz-tooltip>
     </div>
   </div>
 </template>
