@@ -64,4 +64,6 @@
   /*animation*/
   --hz-transition-duration: 0.3s;
   --hz-transition-duration-fast: 0.2s;
+  --hz-transition-function-ease-in-out-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --hz-transition-function-fast-bezier: cubic-bezier(0.23, 1, 0.32, 1);
 }
