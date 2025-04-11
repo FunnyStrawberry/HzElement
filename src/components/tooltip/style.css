@@ -1,0 +1,63 @@
+.hz-tooltip {
+  --hz-popover-font-size: var(--hz-font-size-base);
+  --hz-popover-border-color: var(--hz-border-color);
+  --hz-popover-padding: 5px 11px;
+  --hz-popover-border-radius: 4px;
+  display: inline-block;
+  &.is-light {
+    --hz-popover-text-color: var(--hz-text-color-regular);
+    --hz-popover-bg-color: var(--hz-color-white);
+  }
+  &.is-dark {
+    --hz-popover-text-color: var(--hz-color-white);
+    --hz-popover-bg-color: var(--hz-color-black);
+  }
+}
+.hz-tooltip {
+  .hz-tooltip__popper {
+    background: var(--hz-popover-bg-color);
+    border-radius: var(--hz-popover-border-radius);
+    border: 1px solid var(--hz-popover-border-color);
+    padding: var(--hz-popover-padding);
+    color: var(--hz-popover-text-color);
+    line-height: 1.4;
+    text-align: justify;
+    font-size: var(--hz-popover-font-size);
+    box-shadow: var(--hz-box-shadow-light);
+    word-break: break-all;
+    box-sizing: border-box;
+    z-index: 1000;
+    transition: transform var(--hz-transition-duration) var(--hz-transition-function-fast-bezier);
+  }
+  .hz-tooltip__arrow {
+    position: absolute;
+    background: var(--hz-popover-bg-color);
+    width: 8px;
+    height: 8px;
+    transform: rotate(45deg);
+    &[data-popper-placement^='top'] {
+      border-left: 1px solid var(--hz-popover-border-color);
+      border-top: 1px solid var(--hz-popover-border-color);
+    }
+    &[data-popper-placement^='bottom'] {
+      border-right: 1px solid var(--hz-popover-border-color);
+      border-bottom: 1px solid var(--hz-popover-border-color);
+    }
+    &[data-popper-placement^='left'] {
+      border-left: 1px solid var(--hz-popover-border-color);
+      border-bottom: 1px solid var(--hz-popover-border-color);
+    }
+    &[data-popper-placement^='right'] {
+      border-right: 1px solid var(--hz-popover-border-color);
+      border-top: 1px solid var(--hz-popover-border-color);
+    }
+  }
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: opacity var(--hz-transition-duration);
+  }
+  .fade-enter-from,
+  .fade-leave-to {
+    opacity: 0;
+  }
+}
