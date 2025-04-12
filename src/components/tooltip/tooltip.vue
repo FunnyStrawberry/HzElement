@@ -166,8 +166,4 @@ defineExpose<ITooltipInstance>({
   </div>
 </template>
 
-<style scoped>
-.hz-tooltip {
-  border: 1px seagreen solid;
-}
-</style>
+<style scoped></style>
