@@ -2,11 +2,15 @@
 import HzButton from '@/components/button/button.vue'
 import type { IButtonInstance } from './components/button/types'
 import HzCollapse from './components/collapse/collapse.vue'
-import HzCollapseItem from './components/collapse/collapseItem.vue'
+import HzCollapseItem from './components/collapse/collapse-item.vue'
 import HzIcon from './components/icon/icon.vue'
 import HzAlert from './components/alert/alert.vue'
 import HzTooltip from './components/tooltip/tooltip.vue'
 import type { ITooltipInstance } from './components/tooltip/types'
+import HzDropdown from './components/dropdown/dropdown.vue'
+import HzDropdownMenu from './components/dropdown/dropdown-menu.vue'
+import HzDropdownItem from './components/dropdown/dropdown-item.vue'
+import type { CommandType, IDropdownInstance } from './components/dropdown/type'
 
 const hzButtonEl = useTemplateRef<IButtonInstance>('hzButtonRef')
 const openedValue = ref(['a'])
@@ -15,12 +19,21 @@ const handleWarningAlert = () => {
 }
 const hzTooltipEl = useTemplateRef<ITooltipInstance>('hzTooltipRef')
 const trigger = ref<'hover' | 'click'>('click')
-
 const open = () => {
   hzTooltipEl.value?.add()
 }
 const close = () => {
   hzTooltipEl.value?.remove()
+}
+const hzDropdownEl = useTemplateRef<IDropdownInstance>('hzDropdownRef')
+const handleCommand = (command: CommandType) => {
+  console.log('click on item', command)
+}
+const openDropdown = () => {
+  hzDropdownEl.value?.add()
+}
+const closeDropdown = () => {
+  hzDropdownEl.value?.remove()
 }
 
 onMounted(() => {
@@ -128,11 +141,41 @@ onMounted(() => {
         :add-delay="100"
         :remove-delay="100"
       >
-        <span>tooltip button</span>
+        <hz-button>tooltip button</hz-button>
         <template #content>
           <span>Hello tooltip</span>
         </template>
       </hz-tooltip>
+    </div>
+  </div>
+  <div class="example">
+    <div class="example-showcase">
+      <div class="mb-4">
+        <hz-button type="primary" @click="openDropdown">open button</hz-button>
+        <hz-button type="primary" @click="closeDropdown">close button</hz-button>
+      </div>
+      <hz-dropdown ref="hzDropdownRef" :trigger="trigger" @command="handleCommand">
+        <hz-button>dropdown button</hz-button>
+        <template #dropdown>
+          <hz-dropdown-menu>
+            <hz-dropdown-item command="a">Action 1</hz-dropdown-item>
+            <hz-dropdown-item command="b">Action 2</hz-dropdown-item>
+            <hz-dropdown-item
+              :command="{
+                text: 'Action 3',
+              }"
+              >Action 3</hz-dropdown-item
+            >
+            <hz-dropdown-item :command="4" disabled>Action 4</hz-dropdown-item>
+            <hz-dropdown-item :command="5" divided>Action 5</hz-dropdown-item>
+          </hz-dropdown-menu>
+        </template>
+      </hz-dropdown>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
     </div>
   </div>
 </template>
