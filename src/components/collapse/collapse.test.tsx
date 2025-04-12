@@ -2,7 +2,7 @@ import { describe, test, expect, beforeAll } from 'vitest'
 import type { VueWrapper, DOMWrapper } from '@vue/test-utils'
 import { mount } from '@vue/test-utils'
 import HzCollapse from './collapse.vue'
-import HzCollapseItem from './collapseItem.vue'
+import HzCollapseItem from './collapse-item.vue'
 
 let wrapper: VueWrapper
 let headers: DOMWrapper<Element>[], contents: DOMWrapper<Element>[]
