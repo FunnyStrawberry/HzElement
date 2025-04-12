@@ -61,9 +61,17 @@
   --hz-disabled-text-color: var(--hz-text-color-placeholder);
   --hz-disabled-border-color: var(--hz-border-color-light);
 
-  /*animation*/
+  /* animation */
   --hz-transition-duration: 0.3s;
   --hz-transition-duration-fast: 0.2s;
   --hz-transition-function-ease-in-out-bezier: cubic-bezier(0.645, 0.045, 0.355, 1);
   --hz-transition-function-fast-bezier: cubic-bezier(0.23, 1, 0.32, 1);
+
+  /* shadow */
+  --hz-box-shadow: 0px 12px 32px 4px rgba(0, 0, 0, 0.04), 0px 8px 20px rgba(0, 0, 0, 0.08);
+  --hz-box-shadow-light: 0px 0px 12px rgba(0, 0, 0, 0.12);
+  --hz-box-shadow-lighter: 0px 0px 6px rgba(0, 0, 0, 0.12);
+  --hz-box-shadow-dark:
+    0px 16px 48px 16px rgba(0, 0, 0, 0.08), 0px 12px 32px rgba(0, 0, 0, 0.12),
+    0px 8px 16px -8px rgba(0, 0, 0, 0.16);
 }
