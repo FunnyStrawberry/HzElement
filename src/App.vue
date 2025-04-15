@@ -11,6 +11,8 @@ import HzDropdown from './components/dropdown/dropdown.vue'
 import HzDropdownMenu from './components/dropdown/dropdown-menu.vue'
 import HzDropdownItem from './components/dropdown/dropdown-item.vue'
 import type { CommandType, IDropdownInstance } from './components/dropdown/type'
+import { createMessage } from './components/message/method'
+import type { MessageType } from './components/message/type'
 
 const hzButtonEl = useTemplateRef<IButtonInstance>('hzButtonRef')
 const openedValue = ref(['a'])
@@ -34,6 +36,10 @@ const openDropdown = () => {
 }
 const closeDropdown = () => {
   hzDropdownEl.value?.remove()
+}
+const addMessage = (type: MessageType) => {
+  createMessage({ message: `${type} message`, type: type, duration: 2000 })
+  createMessage({ message: `${type} message`, type: type, duration: 0, showClose: true })
 }
 
 onMounted(() => {
@@ -171,11 +177,15 @@ onMounted(() => {
           </hz-dropdown-menu>
         </template>
       </hz-dropdown>
-      <div class="mb-4">1</div>
-      <div class="mb-4">1</div>
-      <div class="mb-4">1</div>
-      <div class="mb-4">1</div>
-      <div class="mb-4">1</div>
+    </div>
+  </div>
+  <div class="example">
+    <div class="example-showcase">
+      <hz-button type="primary" @click="addMessage('primary')">Primary Message</hz-button>
+      <hz-button type="success" @click="addMessage('success')">Success Message</hz-button>
+      <hz-button type="info" @click="addMessage('info')">Info Message</hz-button>
+      <hz-button type="warning" @click="addMessage('warning')">Warning Message</hz-button>
+      <hz-button type="danger" @click="addMessage('danger')">Danger Message</hz-button>
     </div>
   </div>
 </template>
