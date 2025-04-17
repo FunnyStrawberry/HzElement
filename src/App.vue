@@ -13,6 +13,7 @@ import HzDropdownItem from './components/dropdown/dropdown-item.vue'
 import type { CommandType, IDropdownInstance } from './components/dropdown/type'
 import { createMessage } from './components/message/method'
 import type { MessageType } from './components/message/type'
+import HzInput from './components/input/input.vue'
 
 const hzButtonEl = useTemplateRef<IButtonInstance>('hzButtonRef')
 const openedValue = ref(['a'])
@@ -41,6 +42,7 @@ const addMessage = (type: MessageType) => {
   createMessage({ message: `${type} message`, type: type, duration: 2000 })
   createMessage({ message: `${type} message`, type: type, duration: 0, showClose: true })
 }
+const inputValue = ref('test')
 
 onMounted(() => {
   if (hzButtonEl.value) {
@@ -186,6 +188,11 @@ onMounted(() => {
       <hz-button type="info" @click="addMessage('info')">Info Message</hz-button>
       <hz-button type="warning" @click="addMessage('warning')">Warning Message</hz-button>
       <hz-button type="danger" @click="addMessage('danger')">Danger Message</hz-button>
+    </div>
+  </div>
+  <div class="example">
+    <div class="example-showcase">
+      <hz-input type="text" v-model="inputValue" clearable placeholder="请输入" />
     </div>
   </div>
 </template>
