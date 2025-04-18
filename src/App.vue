@@ -14,6 +14,7 @@ import type { CommandType, IDropdownInstance } from './components/dropdown/type'
 import { createMessage } from './components/message/method'
 import type { MessageType } from './components/message/type'
 import HzInput from './components/input/input.vue'
+import HzSwich from './components/switch/switch.vue'
 
 const hzButtonEl = useTemplateRef<IButtonInstance>('hzButtonRef')
 const openedValue = ref(['a'])
@@ -43,6 +44,7 @@ const addMessage = (type: MessageType) => {
   createMessage({ message: `${type} message`, type: type, duration: 0, showClose: true })
 }
 const inputValue = ref('test')
+const switchValue = ref('right')
 
 onMounted(() => {
   if (hzButtonEl.value) {
@@ -193,6 +195,14 @@ onMounted(() => {
   <div class="example">
     <div class="example-showcase">
       <hz-input type="text" v-model="inputValue" clearable placeholder="请输入" />
+      <hz-swich
+        v-model="switchValue"
+        activeValue="right"
+        inactiveValue="wrong"
+        activeText="right"
+        inactiveText="wrong"
+      />
+      {{ switchValue }}
     </div>
   </div>
 </template>
