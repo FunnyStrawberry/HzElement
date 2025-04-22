@@ -15,6 +15,8 @@ import { createMessage } from './components/message/method'
 import type { MessageType } from './components/message/type'
 import HzInput from './components/input/input.vue'
 import HzSwich from './components/switch/switch.vue'
+import HzSelect from './components/select/select.vue'
+import type { SelectOptionType } from './components/select/type'
 
 const hzButtonEl = useTemplateRef<IButtonInstance>('hzButtonRef')
 const openedValue = ref(['a'])
@@ -45,6 +47,33 @@ const addMessage = (type: MessageType) => {
 }
 const inputValue = ref('test')
 const switchValue = ref('right')
+const selectValue = ref('value1')
+const selectOptions: SelectOptionType[] = [
+  {
+    value: 'value1',
+    label: 'label1',
+  },
+  {
+    value: 'value2',
+    label: 'label2',
+  },
+  {
+    value: 'value3',
+    label: 'label3',
+  },
+  {
+    value: 'value4',
+    label: 'label4',
+  },
+  {
+    value: 'value5',
+    label: 'label5',
+    disabled: true,
+  },
+]
+const customRender = (option: SelectOptionType) => {
+  return h('div', { className: 'xyz' }, [h('b', option.label), h('span', option.value)])
+}
 
 onMounted(() => {
   if (hzButtonEl.value) {
@@ -194,15 +223,36 @@ onMounted(() => {
   </div>
   <div class="example">
     <div class="example-showcase">
-      <hz-input type="text" v-model="inputValue" clearable placeholder="请输入" />
-      <hz-swich
-        v-model="switchValue"
-        activeValue="right"
-        inactiveValue="wrong"
-        activeText="right"
-        inactiveText="wrong"
-      />
-      {{ switchValue }}
+      <div class="mb-4">
+        <hz-input type="text" v-model="inputValue" clearable placeholder="请输入" />
+      </div>
+      <div class="mb-4">
+        <hz-swich
+          v-model="switchValue"
+          activeValue="right"
+          inactiveValue="wrong"
+          activeText="right"
+          inactiveText="wrong"
+        />
+      </div>
+      <div class="mb-4">
+        <hz-select
+          v-model="selectValue"
+          :options="selectOptions"
+          clearable
+          filterable
+          :renderLabel="customRender"
+        />
+      </div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
+      <div class="mb-4">1</div>
     </div>
   </div>
 </template>
