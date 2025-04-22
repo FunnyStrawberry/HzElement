@@ -13,6 +13,7 @@ const {
   placement = 'bottom',
   manual,
   popperOptions,
+  middlewareOptions = [],
   transition = 'fade',
   addDelay = 0,
   removeDelay = 0,
@@ -27,7 +28,13 @@ const arrowNode = useTemplateRef<HTMLElement>('arrowRef')
 const useFloatingOptions = computed(() => {
   return {
     placement,
-    middleware: [offset(9), flip(), shift({ padding: 5 }), arrow({ element: arrowNode })],
+    middleware: [
+      offset(9),
+      flip(),
+      shift({ padding: 5 }),
+      arrow({ element: arrowNode }),
+      ...middlewareOptions,
+    ],
     whileElementsMounted: autoUpdate,
     ...popperOptions,
   }
@@ -85,6 +92,9 @@ if (!manual) {
 useClickOutside(tooltipNode, () => {
   if (trigger === 'click' && isShow.value === true && !manual) {
     removePopper()
+  }
+  if (isShow.value) {
+    emits('click-outside', true)
   }
 })
 
