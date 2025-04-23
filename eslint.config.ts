@@ -21,7 +21,7 @@ export default defineConfigWithVueTs(
       'vue/multi-word-component-names': [
         'error',
         {
-          ignores: ['basic'], // 允许这些单单词名
+          ignores: ['basic', 'disabled'], // 允许这些单单词名
         },
       ],
     },
