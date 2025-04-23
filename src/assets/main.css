@@ -1,6 +1,6 @@
 @import './vars.css';
 @import './base.css';
-@import '../components/button/style.css';
+@import '../components/button/style/style.css';
 @import '../components/collapse/style.css';
 @import '../components/icon/style.css';
 @import '../components/alert/style.css';

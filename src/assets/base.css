@@ -86,3 +86,7 @@ hr {
   border: 0;
   border-top: 1px solid var(--hz-border-color-lighter);
 }
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
