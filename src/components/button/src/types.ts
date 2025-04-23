@@ -16,6 +16,7 @@ export interface IButtonProps {
   icon?: string
   loading?: boolean
 }
+
 export interface IButtonInstance {
   ref: HTMLButtonElement
 }
