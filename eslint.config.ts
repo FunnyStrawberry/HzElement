@@ -12,10 +12,19 @@ export default defineConfigWithVueTs(
     name: 'app/files-to-lint',
     files: ['**/*.{ts,mts,tsx,vue}'],
   },
-
   {
     name: 'app/files-to-ignore',
     ignores: ['**/dist/**', '**/dist-ssr/**', '**/coverage/**'],
+  },
+  {
+    rules: {
+      'vue/multi-word-component-names': [
+        'error',
+        {
+          ignores: ['basic'], // 允许这些单单词名
+        },
+      ],
+    },
   },
 
   pluginVue.configs['flat/essential'],
