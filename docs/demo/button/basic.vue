@@ -1,5 +1,3 @@
-<script setup lang="ts"></script>
-
 <template>
   <div class="mb-4">
     <hz-button>Default</hz-button>
