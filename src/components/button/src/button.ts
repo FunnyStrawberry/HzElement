@@ -1,11 +1,15 @@
 export type ButtonType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'
 export type ButtonSize = 'large' | 'small'
 export type NativeType = 'button' | 'submit' | 'reset'
+export type IconPositionType = 'left' | 'right'
 
 export interface IButtonProps {
   type?: ButtonType
   size?: ButtonSize
   plain?: boolean
+  link?: boolean
+  text?: boolean
+  textBg?: boolean
   round?: boolean
   circle?: boolean
   disabled?: boolean
@@ -14,6 +18,7 @@ export interface IButtonProps {
   autofocus?: boolean
   // icon 的相关属性
   icon?: string
+  iconPosition?: IconPositionType
   loading?: boolean
 }
 

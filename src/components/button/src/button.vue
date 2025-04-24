@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import type { IButtonProps } from './types'
+import type { IButtonProps } from './button'
 import Icon from '@/components/icon/icon.vue'
 
 defineOptions({
   name: 'HzButton',
 })
-const { nativeType = 'button' } = defineProps<IButtonProps>()
+const { nativeType = 'button', iconPosition = 'left' } = defineProps<IButtonProps>()
 const slots = defineSlots()
 
 // 判断是否存在默认插槽
@@ -25,6 +25,9 @@ defineExpose({
       [`hz-button--${type}`]: type,
       [`hz-button--${size}`]: size,
       'is-plain': plain,
+      'is-link': link,
+      'is-text': text,
+      'is-text-bg': textBg,
       'is-round': round,
       'is-circle': circle,
       'is-disabled': disabled,
@@ -35,10 +38,11 @@ defineExpose({
     :type="nativeType"
   >
     <icon icon="spinner" spin v-if="loading" />
-    <icon :icon="icon" v-if="icon" />
+    <icon :icon="icon" v-if="icon && iconPosition === 'left'" />
     <span v-if="hasDefaultSlot">
       <slot />
     </span>
+    <icon :icon="icon" v-if="icon && iconPosition === 'right'" />
   </button>
 </template>
 
