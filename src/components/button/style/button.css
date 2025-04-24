@@ -101,9 +101,9 @@
   &.is-disabled,
   &.is-disabled:hover,
   &.is-disabled:focus,
-  &[disabled='true'],
-  &[disabled='true']:hover,
-  &[disabled='true']:focus {
+  &:disabled,
+  &:disabled:hover,
+  &:disabled:focus {
     color: var(--hz-button-disabled-text-color);
     border-color: var(--hz-button-disabled-border-color);
     background-color: var(--hz-button-disabled-bg-color);
