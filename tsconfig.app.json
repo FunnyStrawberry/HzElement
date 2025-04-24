@@ -7,7 +7,8 @@
 
     "paths": {
       "@/*": ["./src/*"],
-      "@hz-element/utils": ["./src/utils/*"]
+      "@hz-element/utils": ["./src/utils/index.ts"],
+      "@hz-element/utils/*": ["./src/utils/*"]
     }
   }
 }
