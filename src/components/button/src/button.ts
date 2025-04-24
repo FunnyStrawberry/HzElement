@@ -1,5 +1,5 @@
 export type ButtonType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'
-export type ButtonSize = 'large' | 'small'
+export type ButtonSize = 'large' | 'default' | 'small'
 export type NativeType = 'button' | 'submit' | 'reset'
 export type IconPositionType = 'left' | 'right'
 

@@ -1,16 +1,21 @@
 <script setup lang="ts">
 import type { IButtonProps } from './button'
+import { buttonGroupContextKey } from './button-group'
 import Icon from '@/components/icon/icon.vue'
 
 defineOptions({
   name: 'HzButton',
 })
-const { nativeType = 'button', iconPosition = 'left' } = defineProps<IButtonProps>()
+const { type, size, nativeType = 'button', iconPosition = 'left' } = defineProps<IButtonProps>()
 const slots = defineSlots()
 
 // 判断是否存在默认插槽
 const hasDefaultSlot = !!slots.default
 const buttonNode = useTemplateRef<HTMLButtonElement>('buttonRef')
+// 当存在 buttonGroup 获取其 type 和 size
+const buttonGroupContext = inject(buttonGroupContextKey)
+const _type = computed(() => (type ? type : buttonGroupContext?.type))
+const _size = computed(() => (size ? size : buttonGroupContext?.size))
 
 defineExpose({
   ref: buttonNode,
@@ -22,8 +27,8 @@ defineExpose({
     ref="buttonRef"
     class="hz-button"
     :class="{
-      [`hz-button--${type}`]: type,
-      [`hz-button--${size}`]: size,
+      [`hz-button--${_type}`]: _type,
+      [`hz-button--${_size}`]: _size !== 'default',
       'is-plain': plain,
       'is-link': link,
       'is-text': text,
