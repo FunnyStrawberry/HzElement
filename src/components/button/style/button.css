@@ -6,6 +6,7 @@
   --hz-button-disabled-text-color: var(--hz-disabled-text-color);
   --hz-button-disabled-bg-color: var(--hz-fill-color-blank);
   --hz-button-disabled-border-color: var(--hz-border-color-light);
+  --el-button-divide-border-color: rgba(255, 255, 255, 0.5);
   --hz-button-hover-text-color: var(--hz-color-primary);
   --hz-button-hover-bg-color: var(--hz-color-primary-light-9);
   --hz-button-hover-border-color: var(--hz-color-primary-light-7);
