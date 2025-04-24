@@ -1,4 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable vue/prefer-import-from-vue, @typescript-eslint/no-explicit-any  */
+import { NOOP } from '@vue/shared'
 import type { SFCWithInstall } from './typescript'
 
 /**
@@ -26,4 +27,15 @@ export const withInstall = <T, E extends Record<string, any>>(main: T, extra?: E
   }
 
   return main as SFCWithInstall<T> & E
+}
+
+/**
+ * 主要用于给 Vue 组件添加一个空的 install 方法
+ * @param component 组件
+ * @returns 添加了 install 方法的组件
+ */
+export const withNoopInstall = <T>(component: T) => {
+  ;(component as SFCWithInstall<T>).install = NOOP
+
+  return component as SFCWithInstall<T>
 }
