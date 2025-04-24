@@ -6,7 +6,13 @@ import Icon from '@/components/icon/icon.vue'
 defineOptions({
   name: 'HzButton',
 })
-const { type, size, nativeType = 'button', iconPosition = 'left' } = defineProps<IButtonProps>()
+const {
+  type,
+  size,
+  nativeType = 'button',
+  iconPosition = 'left',
+  loadingIcon = 'spinner',
+} = defineProps<IButtonProps>()
 const slots = defineSlots()
 
 // 判断是否存在默认插槽
@@ -42,7 +48,7 @@ defineExpose({
     :autofocus="autofocus"
     :type="nativeType"
   >
-    <icon icon="spinner" spin v-if="loading" />
+    <icon :icon="loadingIcon" spin v-if="loading" />
     <icon :icon="icon" v-if="icon && iconPosition === 'left'" />
     <span v-if="hasDefaultSlot">
       <slot />

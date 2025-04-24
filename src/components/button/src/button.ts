@@ -20,6 +20,7 @@ export interface IButtonProps {
   icon?: string
   iconPosition?: IconPositionType
   loading?: boolean
+  loadingIcon?: string
 }
 
 export interface IButtonInstance {
