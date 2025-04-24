@@ -8,9 +8,12 @@ import '../../../src/assets/main.css'
 import './custom.css'
 library.add(fas)
 
+import { HzButton } from '../../../src/components/button'
+
 export default {
   ...DefaultTheme,
   enhanceApp({ app }) {
+    app.use(HzButton)
     app.component('demo-preview', ElementPlusContainer)
   },
 }

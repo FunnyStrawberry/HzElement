@@ -26,6 +26,12 @@ export default defineConfig({
         },
       }),
     ],
+    resolve: {
+      alias: {
+        '@': fileURLToPath(new URL('../../src', import.meta.url)),
+        '@hz-element/utils': fileURLToPath(new URL('../../src/utils', import.meta.url)),
+      },
+    },
   },
   // srcDir: 'components',
   markdown: {
@@ -38,7 +44,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
+      { text: '组件', link: '/components/button' },
     ],
 
     sidebar: [
@@ -51,7 +57,7 @@ export default defineConfig({
       },
       {
         text: 'Basic 基础组件',
-        items: [{ text: 'Button 按钮', link: '/components/button.md' }],
+        items: [{ text: 'Button 按钮', link: '/components/button' }],
       },
     ],
 
