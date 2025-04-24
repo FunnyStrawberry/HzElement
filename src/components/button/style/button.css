@@ -160,6 +160,10 @@
   padding: 12px 19px;
   font-size: var(--hz-font-size-base);
   border-radius: var(--hz-border-radius-base);
+
+  &.is-circle {
+    padding: 12px;
+  }
 }
 .hz-button--small {
   --hz-button-size: 24px;
@@ -167,4 +171,8 @@
   padding: 5px 11px;
   font-size: 12px;
   border-radius: calc(var(--hz-border-radius-base) - 1px);
+
+  &.is-circle {
+    padding: 5px;
+  }
 }
