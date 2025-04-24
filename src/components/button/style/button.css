@@ -101,9 +101,9 @@
   &.is-disabled,
   &.is-disabled:hover,
   &.is-disabled:focus,
-  &[disabled],
-  &[disabled]:hover,
-  &[disabled]:focus {
+  &[disabled='true'],
+  &[disabled='true']:hover,
+  &[disabled='true']:focus {
     color: var(--hz-button-disabled-text-color);
     border-color: var(--hz-button-disabled-border-color);
     background-color: var(--hz-button-disabled-bg-color);
@@ -114,6 +114,18 @@
   span + [class*='hz-icon'],
   [class*='hz-icon'] + span {
     margin-left: 6px;
+  }
+}
+a.hz-button {
+  color: var(--hz-button-text-color);
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: var(--hz-button-hover-text-color);
+  }
+  &:active {
+    color: var(--hz-button-active-text-color);
   }
 }
 @each $val in primary, success, info, warning, danger {

@@ -12,6 +12,7 @@ const {
   nativeType = 'button',
   iconPosition = 'left',
   loadingIcon = 'spinner',
+  tag = 'button',
 } = defineProps<IButtonProps>()
 const slots = defineSlots()
 
@@ -29,12 +30,13 @@ defineExpose({
 </script>
 
 <template>
-  <button
+  <component
+    :is="tag"
     ref="buttonRef"
     class="hz-button"
     :class="{
       [`hz-button--${_type}`]: _type,
-      [`hz-button--${_size}`]: _size !== 'default',
+      [`hz-button--${_size}`]: _size && _size !== 'default',
       'is-plain': plain,
       'is-link': link,
       'is-text': text,
@@ -54,7 +56,7 @@ defineExpose({
       <slot />
     </span>
     <icon :icon="icon" v-if="icon && iconPosition === 'right'" />
-  </button>
+  </component>
 </template>
 
 <style scoped></style>
