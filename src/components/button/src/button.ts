@@ -21,6 +21,7 @@ export interface IButtonProps {
   iconPosition?: IconPositionType
   loading?: boolean
   loadingIcon?: string
+  color?: string
   tag?: string | Component
 }
 

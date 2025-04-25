@@ -86,6 +86,7 @@
 
     &.is-text-bg {
       --hz-button-bg-color: var(--hz-fill-color-light);
+      --hz-button-disabled-bg-color: var(--hz-fill-color-light);
     }
   }
   /* round */
