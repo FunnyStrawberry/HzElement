@@ -46,7 +46,6 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: '组件', link: '/components/button' },
     ],
-
     sidebar: [
       {
         text: 'Examples',
@@ -60,7 +59,10 @@ export default defineConfig({
         items: [{ text: 'Button 按钮', link: '/components/button' }],
       },
     ],
-
+    outline: {
+      label: '目录',
+      level: [2, 3],
+    },
     socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
   },
 })
