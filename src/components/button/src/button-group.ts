@@ -5,5 +5,10 @@ export interface IButtonGroupProps {
   size?: ButtonSize
 }
 
-export const buttonGroupContextKey: InjectionKey<IButtonGroupProps> =
+export interface IButtonGroupContext {
+  type?: Ref<ButtonType>
+  size?: Ref<ButtonSize>
+}
+
+export const buttonGroupContextKey: InjectionKey<IButtonGroupContext> =
   Symbol('buttonGroupContextKey')

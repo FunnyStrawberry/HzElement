@@ -23,8 +23,8 @@ const hasDefaultSlot = !!slots.default
 const buttonNode = useTemplateRef<HTMLButtonElement>('buttonRef')
 // 当存在 buttonGroup 获取其 type 和 size
 const buttonGroupContext = inject(buttonGroupContextKey, undefined)
-const _type = computed(() => (type ? type : buttonGroupContext?.type))
-const _size = computed(() => (size ? size : buttonGroupContext?.size))
+const _type = computed(() => (type ? type : buttonGroupContext?.type?.value))
+const _size = computed(() => (size ? size : buttonGroupContext?.size?.value))
 // 当存在 color 属性, 进行计算自定义按钮颜色
 const customStyle = reactive({
   color: '',

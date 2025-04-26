@@ -8,8 +8,8 @@ defineOptions({
 const { type, size } = defineProps<IButtonGroupProps>()
 
 provide(buttonGroupContextKey, {
-  type,
-  size,
+  type: type ? toRef(() => type) : undefined,
+  size: size ? toRef(() => size) : undefined,
 })
 </script>
 
