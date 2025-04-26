@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { TinyColor } from '@ctrl/tinycolor'
-import type { IButtonProps } from './button'
+import type { IButtonProps, IButtonEmits } from './button'
 import { buttonGroupContextKey } from './button-group'
 import Icon from '@/components/icon/icon.vue'
 
@@ -10,12 +10,15 @@ defineOptions({
 const {
   type,
   size,
+  disabled,
   nativeType = 'button',
   iconPosition = 'left',
+  loading,
   loadingIcon = 'spinner',
   tag = 'button',
   color,
 } = defineProps<IButtonProps>()
+const emits = defineEmits<IButtonEmits>()
 const slots = defineSlots()
 
 // 判断是否存在默认插槽
@@ -47,6 +50,14 @@ if (color) {
   customStyle['color-dark-2'] = customColor.mix('#000', 20).toHexString()
   customStyle['text-color'] = customColor.isLight() ? '#000000' : '#ffffff'
 }
+// 控制按钮的点击事件
+const handleClick = (evt: MouseEvent) => {
+  if (disabled || loading) {
+    evt.stopPropagation()
+    return
+  }
+  emits('click', evt)
+}
 
 defineExpose({
   ref: buttonNode,
@@ -74,6 +85,7 @@ defineExpose({
     :disabled="disabled || loading"
     :autofocus="autofocus"
     :type="nativeType"
+    @click="handleClick"
   >
     <icon :icon="loadingIcon" spin v-if="loading" />
     <icon :icon="icon" v-if="icon && iconPosition === 'left'" />

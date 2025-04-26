@@ -25,6 +25,10 @@ export interface IButtonProps {
   tag?: string | Component
 }
 
+export interface IButtonEmits {
+  (e: 'click', values: MouseEvent): void
+}
+
 export interface IButtonInstance {
   ref: HTMLButtonElement
 }
