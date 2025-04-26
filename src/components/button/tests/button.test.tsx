@@ -146,6 +146,7 @@ describe('button.vue', () => {
   test('tag', () => {
     const link = 'https://github.com/FunnyStrawberry/HzElement'
     const wrapper = mount(() => (
+      // @ts-expect-error 显示没有 href 类型
       <HzButton tag="a" href={link}>
         button
       </HzButton>
