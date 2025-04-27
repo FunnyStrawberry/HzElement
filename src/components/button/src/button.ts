@@ -1,3 +1,5 @@
+import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
+
 export type ButtonType = 'default' | 'primary' | 'success' | 'info' | 'warning' | 'danger'
 export type ButtonSize = 'large' | 'default' | 'small'
 export type NativeType = 'button' | 'submit' | 'reset'
@@ -17,7 +19,7 @@ export interface IButtonProps {
   nativeType?: NativeType
   autofocus?: boolean
   // icon 的相关属性
-  icon?: string
+  icon?: object | Array<string> | string | IconDefinition
   iconPosition?: IconPositionType
   loading?: boolean
   loadingIcon?: string
