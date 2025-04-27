@@ -2,7 +2,7 @@
 import { TinyColor } from '@ctrl/tinycolor'
 import type { IButtonProps, IButtonEmits } from './button'
 import { buttonGroupContextKey } from './button-group'
-import Icon from '@/components/icon/icon.vue'
+import { HzIcon } from '@/components/icon'
 
 defineOptions({
   name: 'HzButton',
@@ -87,12 +87,12 @@ defineExpose({
     :type="nativeType"
     @click="handleClick"
   >
-    <icon :icon="loadingIcon" spin v-if="loading" />
-    <icon :icon="icon" v-if="icon && iconPosition === 'left'" />
+    <hz-icon :icon="loadingIcon" spin v-if="loading" />
+    <hz-icon :icon="icon" v-if="icon && iconPosition === 'left'" />
     <span v-if="hasDefaultSlot">
       <slot />
     </span>
-    <icon :icon="icon" v-if="icon && iconPosition === 'right'" />
+    <hz-icon :icon="icon" v-if="icon && iconPosition === 'right'" />
   </component>
 </template>
 
