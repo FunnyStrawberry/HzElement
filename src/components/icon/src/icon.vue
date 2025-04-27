@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { IIconProps } from './types'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import type { IIconProps } from './icon'
 
 defineOptions({
   name: 'HzIcon',

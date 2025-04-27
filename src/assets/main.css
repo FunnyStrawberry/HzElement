@@ -2,7 +2,7 @@
 @import './base.css';
 @import '../components/button/style/index.css';
 @import '../components/collapse/style.css';
-@import '../components/icon/style.css';
+@import '../components/icon/style/index.css';
 @import '../components/alert/style.css';
 @import '../components/tooltip/style.css';
 @import '../components/dropdown/style.css';
